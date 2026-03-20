@@ -1,0 +1,72 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                                                                  ║
+║         🔍 FIND THE CORRECT MODEL NAMES                         ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+You have 3 different API keys for 3 different Gemini models.
+Let's find out which model names work with your keys!
+
+═══════════════════════════════════════════════════════════════════
+
+🚀 RUN THIS COMMAND:
+
+cd backend
+python find_correct_models.py
+
+═══════════════════════════════════════════════════════════════════
+
+📊 WHAT IT DOES:
+
+This script will:
+1. Test your 3 API keys
+2. Try ALL possible Gemini model names
+3. Find which models work with each key
+4. Give you the exact code to use
+
+═══════════════════════════════════════════════════════════════════
+
+✅ EXPECTED OUTPUT:
+
+If your keys work, you'll see:
+
+✅ ALL THREE API KEYS WORK!
+
+Working configurations:
+   FLASH: gemini-2.0-flash-exp
+   PRO: gemini-exp-1206
+   LITE: gemini-2.0-flash-lite-exp
+
+Then it will show you the exact code to copy into main.py
+
+═══════════════════════════════════════════════════════════════════
+
+❌ IF KEYS DON'T WORK:
+
+You'll see which keys don't work and need to be replaced.
+
+Solution:
+1. Go to: https://aistudio.google.com/app/apikey
+2. Create new API keys (choose "Create in NEW project")
+3. Update backend/.env
+4. Run the test again
+
+═══════════════════════════════════════════════════════════════════
+
+💡 YOUR CURRENT KEYS:
+
+FLASH: ...aBSU
+PRO: ...U81w
+LITE: ...LXHM
+
+═══════════════════════════════════════════════════════════════════
+
+🎯 AFTER FINDING THE MODELS:
+
+1. The script will show you the correct model names
+2. I'll update the code with those names
+3. Restart backend: python main.py
+4. Test at: http://localhost:3002
+5. ✅ All 3 models will work!
+
+═══════════════════════════════════════════════════════════════════

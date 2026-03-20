@@ -1,0 +1,122 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                                                                  ║
+║              ✅ DIAGNOSIS COMPLETE                               ║
+║                                                                  ║
+║     Your API keys are from a project where the API is NOT       ║
+║     enabled. You need NEW keys from a project with API enabled. ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+
+🎯 DO THESE EXACT STEPS:
+
+═══════════════════════════════════════════════════════════════════
+STEP 1: Open AI Studio
+═══════════════════════════════════════════════════════════════════
+
+Open this link in your browser:
+https://aistudio.google.com/app/apikey
+
+
+═══════════════════════════════════════════════════════════════════
+STEP 2: Create New API Key
+═══════════════════════════════════════════════════════════════════
+
+You'll see a button "Create API key" - CLICK IT
+
+Then you'll see TWO options:
+
+   ○ Create API key in existing project
+   ● Create API key in new project  ← CHOOSE THIS ONE!
+
+Click "Create API key in new project"
+
+This creates a NEW project with the API already enabled!
+
+
+═══════════════════════════════════════════════════════════════════
+STEP 3: Copy the New Key
+═══════════════════════════════════════════════════════════════════
+
+You'll see something like:
+
+   Your API key: AIzaSyABC123def456GHI789jkl012MNO345pqr
+   
+   [Copy]  ← Click this button
+
+The key will be copied to your clipboard.
+
+
+═══════════════════════════════════════════════════════════════════
+STEP 4: Update backend/.env File
+═══════════════════════════════════════════════════════════════════
+
+Open: backend/.env
+
+Replace ALL THREE keys with your NEW key:
+
+GEMINI_FLASH_KEY=AIzaSyABC123def456GHI789jkl012MNO345pqr
+GEMINI_PRO_KEY=AIzaSyABC123def456GHI789jkl012MNO345pqr
+GEMINI_LITE_KEY=AIzaSyABC123def456GHI789jkl012MNO345pqr
+
+(Yes, use the SAME key three times!)
+
+Save the file.
+
+
+═══════════════════════════════════════════════════════════════════
+STEP 5: Test the New Key
+═══════════════════════════════════════════════════════════════════
+
+Run this command:
+
+python verify_setup.py
+
+You should see:
+
+✅ SUCCESS! Found working configuration:
+   Model: gemini-pro
+   Key: AIzaSyABC123...
+
+
+═══════════════════════════════════════════════════════════════════
+STEP 6: Restart Backend
+═══════════════════════════════════════════════════════════════════
+
+python main.py
+
+
+═══════════════════════════════════════════════════════════════════
+STEP 7: Test Your App
+═══════════════════════════════════════════════════════════════════
+
+Open: http://localhost:3002
+Upload an image
+Click "Analyze Document"
+
+✅ IT WILL WORK!
+
+
+═══════════════════════════════════════════════════════════════════
+💡 WHY THIS WORKS
+═══════════════════════════════════════════════════════════════════
+
+Your current keys (ending in ...aBSU, ...U81w, ...LXHM):
+- From Project A
+- API NOT enabled in Project A
+- ❌ Don't work
+
+New key from AI Studio "new project" option:
+- From Project B (new)
+- API automatically enabled in Project B
+- ✅ Works perfectly!
+
+
+═══════════════════════════════════════════════════════════════════
+⏱️ TIME REQUIRED: 2 minutes
+═══════════════════════════════════════════════════════════════════
+
+This is the ONLY solution that will work.
+Your current keys cannot be fixed - you need new ones.
+
+═══════════════════════════════════════════════════════════════════

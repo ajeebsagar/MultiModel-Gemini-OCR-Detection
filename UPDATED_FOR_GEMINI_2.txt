@@ -1,0 +1,63 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                                                                  ║
+║         ✅ UPDATED TO GEMINI 2.0 MODELS!                        ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+I've updated the code to use the Gemini 2.0 experimental models:
+
+✅ Gemini 2.0 Flash Preview (gemini-2.0-flash-exp)
+✅ Gemini Exp 1206 - Pro Preview (gemini-exp-1206)
+✅ Gemini 2.0 Flash Lite Preview (gemini-2.0-flash-lite-exp)
+
+═══════════════════════════════════════════════════════════════════
+
+🚀 NOW DO THIS:
+
+1. GET NEW API KEYS
+   
+   → https://aistudio.google.com/app/apikey
+   → Click "Create API key"
+   → Choose "Create API key in NEW project" ← IMPORTANT!
+   → Copy the key
+
+2. UPDATE backend/.env
+   
+   GEMINI_FLASH_KEY=your_new_key_here
+   GEMINI_PRO_KEY=your_new_key_here
+   GEMINI_LITE_KEY=your_new_key_here
+   
+   (Use the SAME key for all three)
+
+3. TEST THE MODELS
+   
+   cd backend
+   python test_gemini_2.py
+   
+   Should show: ✅ 3 working configurations found!
+
+4. START BACKEND
+   
+   python main.py
+
+5. TEST APP
+   
+   http://localhost:3002
+   Upload image
+   ✅ Works with Gemini 2.0!
+
+═══════════════════════════════════════════════════════════════════
+
+📝 NOTE:
+
+Google calls them "Gemini 2.0" not "Gemini 3"
+The experimental models are the latest preview versions
+They're the most advanced models available!
+
+═══════════════════════════════════════════════════════════════════
+
+📚 MORE INFO:
+- GEMINI_2_MODELS.md - Complete details
+- test_gemini_2.py - Test script for Gemini 2.0
+
+═══════════════════════════════════════════════════════════════════
