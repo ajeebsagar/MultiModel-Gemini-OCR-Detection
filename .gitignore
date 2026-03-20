@@ -8,13 +8,14 @@ env/
 venv/
 ENV/
 backend/.env
-
+frontend/node_modules/.env
 # Node
 node_modules/
 .next/
 out/
 build/
 dist/
+
 
 # IDE
 .vscode/

@@ -61,9 +61,15 @@ export default function Home() {
     formData.append('media_resolution', mediaResolution)
     formData.append('thinking_level', thinkingLevel)
 
+    // 1. Define the base URL using the environment variable
+    // Use the Vite one OR the Next.js one, depending on your framework:
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+    // const baseUrl = process.env.NEXT_PUBLIC_API_URL; 
+
     try {
       const response = await axios.post<AnalysisResult>(
-        'http://localhost:8000/api/analyze',
+        // 2. Combine the base URL with your specific endpoint
+        `${baseUrl}/api/analyze`, 
         formData,
         {
           headers: { 'Content-Type': 'multipart/form-data' }
@@ -75,7 +81,7 @@ export default function Home() {
     } finally {
       setLoading(false)
     }
-  }
+}
 
   const downloadText = (modelKey: string) => {
     if (!result) return
