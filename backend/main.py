@@ -69,10 +69,11 @@ class OCRProcessor:
     def image_to_part(image: Image.Image) -> Dict:
         """Convert PIL image to Gemini content part."""
         buf = io.BytesIO()
-        # use PNG to preserve quality; Gemini accepts common formats
-        image.save(buf, format="PNG")
+        if image.mode in ('RGBA', 'P'):
+            image = image.convert('RGB')
+        image.save(buf, format="JPEG", quality=85)
         return {
-            "mime_type": "image/png",
+            "mime_type": "image/jpeg",
             "data": buf.getvalue()
         }
     @staticmethod
@@ -113,9 +114,21 @@ class OCRProcessor:
 
     @staticmethod
     def image_to_base64(image: Image.Image) -> str:
-        """Convert PIL image to base64 string"""
+        """Convert PIL image to base64 string, optimizing size for faster processing"""
+        # Resize if image is too large (reduces bandwidth and processing time)
+        max_dimension = 2048
+        if max(image.size) > max_dimension:
+            ratio = max_dimension / float(max(image.size))
+            new_size = (int(image.size[0] * ratio), int(image.size[1] * ratio))
+            image = image.resize(new_size, Image.Resampling.LANCZOS)
+            
+        # Convert to RGB to support JPEG format
+        if image.mode in ('RGBA', 'P'):
+            image = image.convert('RGB')
+            
         buffered = io.BytesIO()
-        image.save(buffered, format="PNG")
+        # Save as JPEG with good quality to significantly reduce payload size vs PNG
+        image.save(buffered, format="JPEG", quality=85)
         return base64.b64encode(buffered.getvalue()).decode('utf-8')
 
     @staticmethod
@@ -180,7 +193,7 @@ Begin OCR extraction:"""
                             {"text": prompt},
                             {
                                 "inline_data": {
-                                    "mime_type": "image/png",
+                                    "mime_type": "image/jpeg",
                                     "data": image_base64
                                 }
                             }
